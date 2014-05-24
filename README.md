@@ -25,6 +25,11 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
    `mv UCI\ HAR\ Dataset/ data`
 
 5. Run the script 'run_analysis.R` in R:
+```
+> source("run_analysis.R")
+> main()
+```
+A new data file named *./processedData.txt* should be now present in your working directory.
 
    
 ### Data Structure
