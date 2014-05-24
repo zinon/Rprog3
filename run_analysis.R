@@ -1,5 +1,6 @@
 ## Zinonas Zinonos
 ## Fun with R programming
+## May 2012
 
 dataDir <- "./data"
 outFile <- "processedData.txt"
