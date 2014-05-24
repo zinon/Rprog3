@@ -34,6 +34,8 @@ Data Structure
 
 Running the command `tree data/` you should get the following result:
 
+![alt tag](struct.png)
+
 data/
 ├── activity_labels.txt
 ├── features_info.txt
