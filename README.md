@@ -49,10 +49,9 @@ The R script called `run_analysis.R` should be able to do the following:
 should be  stored in the working directory.
 
 
-- Code book for the tidy dataset is available [here](CodeBook.md)
-
-
 ### Conditions before running
+
+- Code book for the processed dataset is available [here](CodeBook.md)
 
 - The `data` directory contains the unzipped data obtained from the link above.
 - The "training" and "test" datasets are found in the subfolders named `train` and `test` respectively.
