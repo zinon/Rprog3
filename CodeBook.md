@@ -24,7 +24,7 @@ A description of all transformation steps is given below. Data are processed by 
 
 2. Merge the training and the test sets using the `getMergedData` function to create one data set.
 
-3. Now, we want to convert data from a wide format to a long format. Many functions in R expect data to be in a long format rather than a wide format. We thus use the 'reshape2' package which provides two major methods, the `melt()` and `dcast()` (for data-frames). 
+3. Now, we want to convert data from a wide format to a long format. Many functions in R expect data to be in a long format rather than a wide format. We thus use the 'reshape2' package which provides two major methods, the `melt()` and `dcast()` (for data-frames). A good instructive reference is: http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/ .
 
 4. Melt the dataset by specifying the *Subject* and *Activity* names as the only identification variables.
 
