@@ -71,7 +71,7 @@ The set of variables that were estimated from the signals mentioned before are:
 
 ### Variables Used
 
-List of variables used:
+List of variables used: (line 120, `print(df[ grep(pattern, df$V2), ])`)
 ```
      V1                          V2
 1     1           tBodyAcc-mean()-X
