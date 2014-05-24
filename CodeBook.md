@@ -6,12 +6,12 @@ Codebook
 A description of all transformation steps is given below. Data are processed by the `run_analysis.R` code, which is also responsible to create an new tidy dataset.
 
 1. For each of the training and test datasets found in the corresponding subdirectories, do the following 
-   a. Read the feature names from the `features.txt` file (cached data are used if necessary)
-   b. Read the `X` values (aka 'set') and subset according to the interesting variables. These are columns the representing only the mean and standard deviation values.
-   c. Attached the result to the `combinedData` in the `getDataset` function
-   d. Associate additional columns to represent activity ID's. Then subject IDs reading from `y_<dataset>.txt` (aka `lables`) and `subject_<dataset>.txt` (aka `subjects`)files respectively.
-   e. Bind the result to the `combinedData` and return to the call function.
-   f. Read the `activity_labels.txt`:
+   - Read the feature names from the `features.txt` file (cached data are used if necessary)
+   - Read the `X` values (aka 'set') and subset according to the interesting variables. These are columns the representing only the mean and standard deviation values.
+   - Attached the result to the `combinedData` in the `getDataset` function
+   - Associate additional columns to represent activity ID's. Then subject IDs reading from `y_<dataset>.txt` (aka `lables`) and `subject_<dataset>.txt` (aka `subjects`)files respectively.
+   - Bind the result to the `combinedData` and return to the call function.
+   - Read the `activity_labels.txt`:
    
    `1 WALKING
    2 WALKING_UPSTAIRS
@@ -20,7 +20,7 @@ A description of all transformation steps is given below. Data are processed by 
    5 STANDING
    6 LAYING`
    and associate an additional column with descriptive activity names as specified in that file.
-   g. Return the resulting `combinedData`.
+   - Return the resulting `combinedData`.
 
 2. Merge the training and the test sets using the `getMergedData` function to create one data set.
 
