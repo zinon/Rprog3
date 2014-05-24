@@ -117,7 +117,10 @@ extractFeatures <- function(df){ #isolate the columns which have only interestin
 
     info("extracting interesting features")
     pattern <- "mean\\(\\)|std\\(\\)"   #names of subset columns required
+    #print(df[ grep(pattern, df$V2), ])
     df[ grep(pattern, df$V2), ] # or df$V2 = df[,2]
+
+
 }
 ##_-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-_
 readFeatures <- function(){#read all info from the features file and return a table
