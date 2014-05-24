@@ -1,8 +1,6 @@
 ## Zinonas Zinonos
 ## Fun with R programming
 
-main()
-
 dataDir <- "./data"
 outFile <- "processedData.txt"
 ##_-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-_
@@ -32,15 +30,36 @@ main <- function(){ # top-level function
     ## store output
     info("saving processed data in output file")
     cat("-> proc data dim ", dim(processedData), "\n")
-    outputfile <- file.path("./", outFile)
+    outputfile <- file.path(".", outFile)
     write.table(processedData, outputfile, row.names = FALSE, quote = FALSE)
+
+    if (file.exists(outputfile))
+        info( paste(outputfile, "created") )
+    else
+        info( paste("rerun code, couldn't create ", outputfile) )
+
+    info("Cheers!")
+}
+##_-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-_
+getMergedData <- function (){ # merge test and train data
+  
+   info("getting training dataset")
+   dataTrain <- getDataTrain()
+   cat("-> train dim ", dim(dataTrain), "\n")
+   
+   info("getting test dataset")
+   dataTest <- getDataTest()
+   cat("-> test dim ", dim(dataTest), "\n")
+   
+   info("merging datasets")
+   mergedData <- rbind(dataTest, dataTrain)
 
 }
 ##_-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-_
 getDataTrain <- function() getDataset("train")
 getDataTest <- function() getDataset("test")
 ##_-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-_
-getDataset <- function(dtype){ # function to create, clean, join and return combined (train & test) data
+getDataset <- function(dtype){ # function to create, clean, join and return combined (train or test) data
 
     ##read interesting feature names and get data correspondingly
     info("features data")
