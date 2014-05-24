@@ -9,7 +9,30 @@ outFile <- "processedData.txt"
 kFeaturesRead <- FALSE
 dfFeatures <- data.frame()
 ##_-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-_
-main <- function(){
+main <- function(){ # top-level function
+
+    info("obtaining a merged dataset")
+    mergedData <- getMergedData()
+
+    ##reference: http://cran.r-project.org/web/packages/reshape2/index.html
+    ## We want to convert data from a wide/long format to a long/wide format.
+    library(reshape2)
+
+    ## melt function from reshape
+    ## From wide to long
+    info("reshaping merged data -> applying melting")
+    meltedData <- melt(mergedData, id = c("Subject", "Activity"))
+
+    ## dcast to reshape the data (this function is meant for d-ata frames)
+    ## From long to wide
+    info("reshaping merged data -> recasting")
+    processedData <- castData <- dcast(meltedData, Subject + Activity ~ variable, mean)
+
+    ## store output
+    info("saving processed data in output file")
+    cat("-> proc data dim ", dim(processedData), "\n")
+    outputfile <- file.path("./", outFile)
+    write.table(processedData, outputfile, row.names = FALSE, quote = FALSE)
 
 }
 ##_-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-_
@@ -106,7 +129,6 @@ getDataFileName <- function( dtype = "train", dcont = ""){#obtain data file with
 getDataFile <- function(dtype = "train", dcont = ""){ #get file with full path
 
     filepath <- file.path(dataDir, dtype, getDataFileName(dtype, dcont))
-
 }
 ##_-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-__-'`'-_
 info <- function(...) {
