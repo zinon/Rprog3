@@ -72,7 +72,7 @@ The set of variables that were estimated from the signals mentioned before are:
 ### Variables Used
 
 List of variables used:
-     V1                          V2
+`     V1                          V2
 1     1           tBodyAcc-mean()-X
 2     2           tBodyAcc-mean()-Y
 3     3           tBodyAcc-mean()-Z
@@ -139,6 +139,6 @@ List of variables used:
 530 530      fBodyBodyGyroMag-std()
 542 542 fBodyBodyGyroJerkMag-mean()
 543 543  fBodyBodyGyroJerkMag-std()
-
+`
 
 
